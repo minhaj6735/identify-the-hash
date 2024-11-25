@@ -1,0 +1,22 @@
+def identify_hash(hash_value):
+    # Define known hash lengths (for MD5, SHA1, SHA256, SHA512, etc.)
+    hash_lengths = {
+        32: 'MD5',          # 32 hex chars
+        40: 'SHA1',         # 40 hex chars
+        64: 'SHA256',       # 64 hex chars
+        128: 'SHA512'       # 128 hex chars
+    }
+
+    # Check the length of the hash_value
+    hash_length = len(hash_value)
+
+    # Identify the hash algorithm based on length
+    if hash_length in hash_lengths:
+        return hash_lengths[hash_length]
+    else:
+        return 'Unknown hash type'
+
+# Example usage
+hash_value = input("Enter hash: ").strip()
+hash_type = identify_hash(hash_value)
+print(f"The hash type is: {hash_type}")
